@@ -29,4 +29,4 @@ jobs:
           echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
           sudo apt install tmate -y
           sleep 15
-          tmate
+          tmate -F -n web new-session
